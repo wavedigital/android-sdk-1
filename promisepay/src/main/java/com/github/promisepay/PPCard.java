@@ -1,11 +1,14 @@
 package com.github.promisepay;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.HashMap;
 
 /**
  * Created by Kevin Hakans on 1/14/16.
  */
-public class PPCard {
+public class PPCard implements Parcelable {
 
     /**
      * The card number.
@@ -70,4 +73,40 @@ public class PPCard {
 
         return params;
     }
+
+    // parcelable
+    private PPCard(Parcel src) {
+        number = src.readString();
+        fullName = src.readString();
+        expiryMonth = src.readString();
+        expiryYear = src.readString();
+        cvv = src.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public final void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(number);
+        dest.writeString(fullName);
+        dest.writeString(expiryMonth);
+        dest.writeString(expiryYear);
+        dest.writeString(cvv);
+    }
+
+    public static final Parcelable.Creator<PPCard> CREATOR = new Parcelable.Creator<PPCard>() {
+
+        @Override
+        public PPCard createFromParcel(Parcel source) {
+            return new PPCard(source);
+        }
+
+        @Override
+        public PPCard[] newArray(int size) {
+            return new PPCard[size];
+        }
+    };
 }
