@@ -9,7 +9,7 @@ Download the latest release from GitHub, then add the PromisePay package to your
 ## Gradle
 
 ```Java
-compile 'com.github.promisepay:promisepay:0.2.0'
+compile 'com.github.promisepay:promisepay:0.2.1'
 ```
 ## Maven
 
@@ -17,7 +17,7 @@ compile 'com.github.promisepay:promisepay:0.2.0'
 <dependency>
   <groupId>com.github.promisepay</groupId>
   <artifactId>promisepay</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
 </dependency>
 ```
 
